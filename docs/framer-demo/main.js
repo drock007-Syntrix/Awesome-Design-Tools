@@ -1,30 +1,38 @@
 import { animate, stagger, inView, hover } from 'framer-motion/dom';
 
-const cards = document.querySelectorAll('.card');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Staggered entrance
-animate(
-	cards,
-	{ opacity: [0, 1], y: [24, 0] },
-	{ delay: stagger(0.1), duration: 0.6, ease: 'easeOut' }
-);
-
-// Spring hover
-hover(cards, (el) => {
-	animate(el, { scale: 1.05 }, { type: 'spring', stiffness: 300, damping: 18 });
-	return () => animate(el, { scale: 1 }, { type: 'spring', stiffness: 300, damping: 18 });
-});
-
-// Scroll-triggered reveal
-inView('.reveal', (el) => {
-	animate(el, { opacity: [0, 1], x: [-40, 0] }, { duration: 0.7 });
-});
-
-// Click-to-replay
-document.getElementById('replay').addEventListener('click', () => {
+if (!reduce) {
+	// Hero entrance
 	animate(
-		cards,
-		{ rotate: [0, 360] },
-		{ delay: stagger(0.08), duration: 0.8, ease: 'easeInOut' }
+		'[data-hero]',
+		{ opacity: [0, 1], y: [20, 0] },
+		{ delay: stagger(0.12), duration: 0.7, ease: 'easeOut' }
 	);
-});
+
+	// Scroll-triggered reveals
+	inView('.grid', (el) => {
+		animate(
+			el.querySelectorAll('.card'),
+			{ opacity: [0, 1], y: [28, 0] },
+			{ delay: stagger(0.1), duration: 0.6, ease: 'easeOut' }
+		);
+	});
+	inView('.steps', (el) => {
+		animate(
+			el.querySelectorAll('.step'),
+			{ opacity: [0, 1], x: [-32, 0] },
+			{ delay: stagger(0.15), duration: 0.6, ease: 'easeOut' }
+		);
+	});
+	inView('.cta .box', (el) => {
+		animate(el, { opacity: [0, 1], scale: [0.96, 1] }, { duration: 0.7 });
+	});
+
+	// Spring hover on cards and buttons
+	const spring = { type: 'spring', stiffness: 300, damping: 20 };
+	hover('.card, .btn', (el) => {
+		animate(el, { scale: 1.04 }, spring);
+		return () => animate(el, { scale: 1 }, spring);
+	});
+}
