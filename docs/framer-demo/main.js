@@ -31,7 +31,7 @@ if (!reduce) {
 
 	// Spring hover on cards and buttons
 	const spring = { type: 'spring', stiffness: 300, damping: 20 };
-	hover('.card, .btn', (el) => {
+	hover('.btn', (el) => {
 		animate(el, { scale: 1.04 }, spring);
 		return () => animate(el, { scale: 1 }, spring);
 	});
