@@ -30,6 +30,7 @@
     "tinycolor2": "^1.4.1"
   },
   "dependencies": {
+    "framer-motion": "^14.1.0",
     "markdown-it": "^8.4.2",
     "showdown": "^1.9.1"
   }
