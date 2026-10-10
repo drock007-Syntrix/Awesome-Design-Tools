@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "PRODUCTION=false node index.js",
-    "production": "PRODUCTION=true node index.js"
+    "production": "PRODUCTION=true node index.js",
+    "build:demo": "esbuild docs/framer-demo/main.js --bundle --minify --outfile=docs/framer-demo/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/berezovskycom/Awesome-Design-Tools#readme",
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "express": "^4.17.1",
     "html-minifier": "^3.5.21",
     "i": "^0.3.6",
