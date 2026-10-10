@@ -29,6 +29,18 @@
 	.step span { color: var(--muted); }
 	.cta { text-align: center; }
 	.cta .box { background: linear-gradient(135deg, #16223d, #0f2a2a); border: 1px solid var(--line); border-radius: 24px; padding: 56px 24px; opacity: 0; }
+	.price { font-size: 40px; font-weight: 700; margin: 12px 0 0; }
+	.price small { font-size: 16px; color: var(--muted); font-weight: 400; }
+	.setup { color: var(--muted); margin: 0 0 16px; font-size: 14px; }
+	.card ul { list-style: none; padding: 0; margin: 0 0 24px; color: var(--muted); }
+	.card li { padding: 6px 0 6px 24px; position: relative; }
+	.card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
+	.card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+	.badge { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #04101f; background: var(--accent2); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+	#pricing .card { display: flex; flex-direction: column; }
+	#pricing .card ul { flex: 1; }
+	.card .btn { display: block; text-align: center; }
+	.note { text-align: center; color: var(--muted); font-size: 14px; margin-top: 24px; }
 	footer { text-align: center; color: var(--muted); padding: 32px; font-size: 14px; }
 	@media (prefers-reduced-motion: reduce) { .card, .step, .cta .box { opacity: 1 !important; } }
 </style>
@@ -59,6 +71,49 @@
 		<div class="step"><div><strong>Build &amp; connect</strong><span>We set up your agent and automations on the tools you already use.</span></div></div>
 		<div class="step"><div><strong>Launch &amp; tune</strong><span>We monitor results and refine so it keeps getting better.</span></div></div>
 	</div>
+</section>
+
+<section id="pricing">
+	<h2>Simple pricing</h2>
+	<div class="grid">
+		<div class="card">
+			<h3>Starter</h3>
+			<div class="price">$297<small>/mo</small></div>
+			<p class="setup">$497 one-time setup</p>
+			<ul>
+				<li>AI agent for calls or website chat</li>
+				<li>Lead capture to your inbox or CRM</li>
+				<li>Instant text-back on missed calls</li>
+			</ul>
+			<a class="btn" href="#contact">Get started</a>
+		</div>
+		<div class="card featured">
+			<span class="badge">Most popular</span>
+			<h3>Growth</h3>
+			<div class="price">$597<small>/mo</small></div>
+			<p class="setup">$1,500 one-time setup</p>
+			<ul>
+				<li>Everything in Starter</li>
+				<li>Automated follow-up by text and email</li>
+				<li>Online booking, reminders, and alerts</li>
+				<li>Review request automation</li>
+			</ul>
+			<a class="btn" href="#contact">Book an audit</a>
+		</div>
+		<div class="card">
+			<h3>Full System</h3>
+			<div class="price">Custom</div>
+			<p class="setup">Scoped after your audit</p>
+			<ul>
+				<li>Everything in Growth</li>
+				<li>Social content automation</li>
+				<li>Custom workflow and CRM integrations</li>
+				<li>Priority support</li>
+			</ul>
+			<a class="btn" href="#contact">Talk to us</a>
+		</div>
+	</div>
+	<p class="note">Month-to-month after setup. Your free audit tells us which plan fits.</p>
 </section>
 
 <section class="cta" id="contact">
