@@ -1,0 +1,6 @@
+{
+  "appId": "com.syntrix.audit",
+  "appName": "Syntrix Audit",
+  "webDir": "www",
+  "ios": { "contentInset": "always", "backgroundColor": "#0b1220" }
+}
